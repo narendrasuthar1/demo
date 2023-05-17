@@ -1,0 +1,10 @@
+{
+    "/api/*":{
+        "target":"https://demo.fabzia.in/App_api/",
+        "changeOrigin":true,
+        "secure":true,
+        "pathRewrite":{
+            "^/api":""
+        }
+    }
+}
