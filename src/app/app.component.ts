@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -12,6 +13,8 @@ export class AppComponent {
 
   title :any;
   headers:HttpHeaders ;
+
+  baseURL = environment.baseURL;
 
 
   constructor(private http: HttpClient) {
@@ -32,6 +35,6 @@ export class AppComponent {
   }
 
     checkLoginAndGetOtp(inputData:any): Observable<any> {
-      return this.http.post('/api/login',inputData,{ 'headers': this.headers })
+      return this.http.post(`${this.baseURL}`+'/login',inputData,{ 'headers': this.headers })
     }
 }
